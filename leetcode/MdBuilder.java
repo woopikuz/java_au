@@ -59,6 +59,6 @@ final class MdBuilder {
     }
 
     private String generateProblemSection() {
-        return String.format("## %s\n\n%s\n\n```\n%s\n```", data.getTitle(), data.getLink(), data.getSourceCode());
+        return String.format("## %s\n\n%s\n\n```java\n%s\n```", data.getTitle(), data.getLink(), data.getSourceCode());
     }
 }
