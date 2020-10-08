@@ -2,6 +2,7 @@
 
 + [Non-overlapping Intervals](#non-overlapping-intervals)
 + [Merge Intervals](#merge-intervals)
++ [Insert Interval](#insert-interval)
 
 ## Non-overlapping Intervals
 
@@ -63,6 +64,34 @@ class Solution {
             }
         }
         return res;
+    }
+}
+```
+
+## Insert Interval
+
+https://leetcode.com/problems/insert-interval/
+
+```java
+class Solution {
+    public int[][] insert(int[][] in, int[] n) {
+        List<int[]> l = new ArrayList<>();
+        int i = 0;
+        while (i < in.length && in[i][1] < n[0]) {
+            l.add(in[i]);
+            i++;
+        }
+        while (i < in.length && in[i][0] <= n[1]) {
+            n[0] = Math.min(n[0], in[i][0]);
+            n[1] = Math.max(n[1], in[i][1]);
+            i++;
+        }
+        l.add(n);
+        while (i < in.length) {
+            l.add(in[i]);
+            i++;
+        }
+        return l.toArray(new int[l.size()][]);
     }
 }
 ```
