@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -52,9 +53,9 @@ final class MdBuilder {
     }
 
     private String generateProblemEntry() throws URISyntaxException {
-        // final URI problemUri = new URI(data.getLink());
-        // return String.format("+ [%s](#%s)", data.getTitle(), new File(problemUri.getPath()).getName());
-        return String.format("+ [%s](#%s)", data.getTitle(), data.getTitle());
+         final URI problemUri = new URI(data.getLink());
+         return String.format("+ [%s](#%s)", data.getTitle(), new File(problemUri.getPath()).getName());
+         // return String.format("+ [%s](#%s)", data.getTitle(), data.getTitle());
     }
 
     private String generateProblemSection() {
