@@ -1,6 +1,7 @@
 # String
 
 + [Group Anagrams](#group-anagrams)
++ [Valid Palindrome](#valid-palindrome)
 
 ## Group Anagrams
 
@@ -19,6 +20,39 @@ class Solution {
             map.get(keyStr).add(s);
         }
         return new ArrayList<>(map.values());
+    }
+}
+```
+
+## Valid Palindrome
+
+https://leetcode.com/problems/valid-palindrome/
+
+```java
+public class Solution {
+    public boolean isPalindrome(String s) {
+        if (s.isEmpty()) {
+            return true;
+        }
+        int head = 0, tail = s.length() - 1;
+        char cHead, cTail;
+        while (head <= tail) {
+            cHead = s.charAt(head);
+            cTail = s.charAt(tail);
+            if (!Character.isLetterOrDigit(cHead)) {
+                head++;
+            } else if (!Character.isLetterOrDigit(cTail)) {
+                tail--;
+            } else {
+                if (Character.toLowerCase(cHead) != Character.toLowerCase(cTail)) {
+                    return false;
+                }
+                head++;
+                tail--;
+            }
+        }
+
+        return true;
     }
 }
 ```
