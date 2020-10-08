@@ -1,12 +1,12 @@
 # Intervals
 
-+ [Non-overlapping Intervals](#Non-overlapping Intervals)
++ [Non-overlapping Intervals](#non-overlapping-intervals)
 
 ## Non-overlapping Intervals
 
 https://leetcode.com/problems/non-overlapping-intervals/
 
-```
+```java
 class Solution {
     public int eraseOverlapIntervals(int[][] intervals) {
         if (intervals.length == 0) return 0;
