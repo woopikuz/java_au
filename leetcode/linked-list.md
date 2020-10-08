@@ -77,7 +77,7 @@ class Solution {
 
 ## Merge Two Sorted Lists
 
-https://leetcode.com/problems/merge-two-sorted-lists/class
+https://leetcode.com/problems/merge-two-sorted-lists/
 
 ```java
 class Solution {
