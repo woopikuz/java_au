@@ -2,6 +2,7 @@
 
 + [Reverse Linked List](#reverse-linked-list)
 + [Middle of the Linked List](#middle-of-the-linked-list)
++ [Palindrome Linked List](#palindrome-linked-list)
 
 ## Reverse Linked List
 
@@ -34,6 +35,41 @@ class Solution {
             fast = fast.next.next;
         }
         return slow;
+    }
+}
+```
+
+## Palindrome Linked List
+
+https://leetcode.com/problems/palindrome-linked-list/
+
+```java
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        if (head == null || head.next == null) return true;
+        ListNode fast = head;
+        ListNode newHead = null;
+        while (fast != null) {
+            if (fast.next == null) {
+                head = head.next;
+                break;
+            } else {
+                fast = fast.next.next;
+            }
+
+            ListNode next = head.next;
+            head.next = newHead;
+            newHead = head;
+            head = next;
+        }
+
+        while (newHead != null) {
+            if (newHead.val != head.val) return false;
+            newHead = newHead.next;
+            head = head.next;
+        }
+
+        return true;
     }
 }
 ```
