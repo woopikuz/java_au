@@ -2,6 +2,7 @@
 
 + [Flatten Nested List Iterator](#flatten-nested-list-iterator)
 + [LRU Cache](#lru-cache)
++ [Min Stack](#min-stack)
 
 ## Flatten Nested List Iterator
 
@@ -131,5 +132,35 @@ public void put(int key, int value) {
     this.moveToHead(node);
   }
 }
+}
+```
+
+## Min Stack
+
+https://leetcode.com/problems/min-stack/
+
+```java
+class MinStack {
+    int min = Integer.MAX_VALUE;
+    Stack<Integer> stack = new Stack<Integer>();
+    public void push(int x) {
+        if(x <= min){
+            stack.push(min);
+            min = x;
+        }
+        stack.push(x);
+    }
+
+    public void pop() {
+        if(stack.pop() == min) min=stack.pop();
+    }
+
+    public int top() {
+        return stack.peek();
+    }
+
+    public int getMin() {
+        return min;
+    }
 }
 ```
